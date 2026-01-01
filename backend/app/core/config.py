@@ -1,0 +1,17 @@
+from pydantic_settings import BaseSettings
+from typing import Optional
+
+
+class Settings(BaseSettings):
+    DATABASE_URL: str = "mysql+pymysql://user:password@localhost:3306/deadstock"
+    SECRET_KEY: str = "your-secret-key-change-in-production"
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    FRONTEND_ORIGINS: str = "http://localhost:3000,http://localhost:3001"
+    
+    class Config:
+        env_file = ".env"
+
+
+settings = Settings()
+
