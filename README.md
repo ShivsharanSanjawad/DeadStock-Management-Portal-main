@@ -220,10 +220,18 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 FRONTEND_ORIGINS=http://localhost:3000,http://localhost:3001
 ```
 
-### Frontend (`.env`)
+### Frontend (`.env.local`)
+Create a `.env.local` file in the `frontend` directory:
 ```
-NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
 ```
+
+**Important Notes:**
+- For local development: Create `frontend/.env.local` with the above content
+- For production (Render): Set `NEXT_PUBLIC_API_BASE_URL` in Render Dashboard → Frontend Service → Settings → Environment
+- Only variables starting with `NEXT_PUBLIC_` are accessible in the browser
+- After adding environment variables in Render, you must redeploy the service
+- See `frontend/.env.example` for reference
 
 ## 📚 Project Structure Details
 
